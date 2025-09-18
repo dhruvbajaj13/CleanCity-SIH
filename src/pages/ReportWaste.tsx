@@ -6,7 +6,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
-import { MapPin, Camera, Upload, AlertTriangle, CheckCircle } from "lucide-react";
+import { MapPin, Camera, Upload, AlertTriangle, CheckCircle, Award, Clock, Zap } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 const ReportWaste = () => {
@@ -74,48 +74,56 @@ const ReportWaste = () => {
           {/* Stats Sidebar */}
           <div className="space-y-6">
             {/* Token Stats */}
-            <Card className="border-0 shadow-card">
+            <Card className="border-0 shadow-card hover:shadow-lg transition-all duration-300 hover-scale">
               <CardHeader>
-                <CardTitle className="text-eco-dark">Your Stats</CardTitle>
+                <CardTitle className="text-eco-dark flex items-center">
+                  <Award className="h-5 w-5 mr-2" />
+                  Your Stats
+                </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-primary">1,250</div>
-                  <div className="text-xs text-muted-foreground">Total Tokens</div>
+                <div className="text-center p-4 bg-gradient-to-br from-primary/10 to-eco-secondary/10 rounded-lg">
+                  <div className="text-3xl font-bold text-primary mb-1">1,250</div>
+                  <div className="text-sm text-muted-foreground">Total CleanTokens</div>
                 </div>
-                <div className="flex justify-between">
-                  <span className="text-sm">Reports This Month</span>
-                  <Badge className="bg-blue-100 text-blue-800">8</Badge>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-sm">Success Rate</span>
-                  <Badge className="bg-green-100 text-green-800">95%</Badge>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-sm">Tokens Earned</span>
-                  <Badge className="bg-purple-100 text-purple-800">+180</Badge>
+                <div className="space-y-3">
+                  <div className="flex justify-between items-center p-3 bg-eco-light rounded-lg">
+                    <span className="text-sm font-medium">Reports This Month</span>
+                    <Badge className="bg-blue-100 text-blue-800">8</Badge>
+                  </div>
+                  <div className="flex justify-between items-center p-3 bg-eco-light rounded-lg">
+                    <span className="text-sm font-medium">Success Rate</span>
+                    <Badge className="bg-green-100 text-green-800">95%</Badge>
+                  </div>
+                  <div className="flex justify-between items-center p-3 bg-eco-light rounded-lg">
+                    <span className="text-sm font-medium">Tokens Earned</span>
+                    <Badge className="bg-purple-100 text-purple-800">+180</Badge>
+                  </div>
                 </div>
               </CardContent>
             </Card>
 
             {/* Pro Tips */}
-            <Card className="border-0 shadow-card">
+            <Card className="border-0 shadow-card hover:shadow-lg transition-all duration-300 hover-scale">
               <CardHeader>
-                <CardTitle className="text-eco-dark">Pro Tips</CardTitle>
+                <CardTitle className="text-eco-dark flex items-center">
+                  <Zap className="h-5 w-5 mr-2" />
+                  Pro Tips
+                </CardTitle>
               </CardHeader>
               <CardContent className="space-y-3">
-                <div className="text-sm space-y-2">
-                  <div className="p-2 bg-eco-light rounded-lg">
-                    <div className="font-medium text-xs mb-1">📸 Photo Bonus</div>
-                    <div className="text-xs text-muted-foreground">Add clear photos for +5 extra tokens</div>
+                <div className="space-y-3">
+                  <div className="p-3 bg-gradient-to-r from-blue-50 to-blue-100 rounded-lg border-l-4 border-blue-500">
+                    <div className="font-medium text-sm mb-1 text-blue-800">📸 Photo Bonus</div>
+                    <div className="text-xs text-blue-700">Add clear photos for +5 extra tokens</div>
                   </div>
-                  <div className="p-2 bg-eco-light rounded-lg">
-                    <div className="font-medium text-xs mb-1">📍 GPS Precision</div>
-                    <div className="text-xs text-muted-foreground">Use location button for accuracy bonus</div>
+                  <div className="p-3 bg-gradient-to-r from-green-50 to-green-100 rounded-lg border-l-4 border-green-500">
+                    <div className="font-medium text-sm mb-1 text-green-800">📍 GPS Precision</div>
+                    <div className="text-xs text-green-700">Use location button for accuracy bonus</div>
                   </div>
-                  <div className="p-2 bg-eco-light rounded-lg">
-                    <div className="font-medium text-xs mb-1">🎯 Peak Hours</div>
-                    <div className="text-xs text-muted-foreground">Report between 9AM-5PM for faster verification</div>
+                  <div className="p-3 bg-gradient-to-r from-purple-50 to-purple-100 rounded-lg border-l-4 border-purple-500">
+                    <div className="font-medium text-sm mb-1 text-purple-800">🎯 Peak Hours</div>
+                    <div className="text-xs text-purple-700">Report 9AM-5PM for faster verification</div>
                   </div>
                 </div>
               </CardContent>
@@ -249,82 +257,93 @@ const ReportWaste = () => {
           {/* Right Sidebar */}
           <div className="space-y-6">
             {/* Rewards Info */}
-            <Card className="border-0 shadow-card">
+            <Card className="border-0 shadow-card hover:shadow-lg transition-all duration-300 hover-scale">
               <CardHeader>
-                <CardTitle className="text-eco-dark">Earn Rewards</CardTitle>
+                <CardTitle className="text-eco-dark flex items-center">
+                  <Award className="h-5 w-5 mr-2" />
+                  Earn Rewards
+                </CardTitle>
               </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="flex items-center justify-between">
-                  <span className="text-sm">Basic Report</span>
-                  <Badge className="bg-green-100 text-green-800">+10 tokens</Badge>
-                </div>
-                <div className="flex items-center justify-between">
-                  <span className="text-sm">With Photo</span>
-                  <Badge className="bg-green-100 text-green-800">+15 tokens</Badge>
-                </div>
-                <div className="flex items-center justify-between">
-                  <span className="text-sm">GPS Location</span>
-                  <Badge className="bg-green-100 text-green-800">+5 tokens</Badge>
-                </div>
-                <div className="flex items-center justify-between">
-                  <span className="text-sm">Verified Report</span>
-                  <Badge className="bg-blue-100 text-blue-800">+20 tokens</Badge>
+              <CardContent className="space-y-3">
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between p-3 bg-green-50 rounded-lg border-l-4 border-green-500">
+                    <span className="text-sm font-medium">Basic Report</span>
+                    <Badge className="bg-green-100 text-green-800">+10 tokens</Badge>
+                  </div>
+                  <div className="flex items-center justify-between p-3 bg-blue-50 rounded-lg border-l-4 border-blue-500">
+                    <span className="text-sm font-medium">With Photo</span>
+                    <Badge className="bg-blue-100 text-blue-800">+15 tokens</Badge>
+                  </div>
+                  <div className="flex items-center justify-between p-3 bg-purple-50 rounded-lg border-l-4 border-purple-500">
+                    <span className="text-sm font-medium">GPS Location</span>
+                    <Badge className="bg-purple-100 text-purple-800">+5 tokens</Badge>
+                  </div>
+                  <div className="flex items-center justify-between p-3 bg-orange-50 rounded-lg border-l-4 border-orange-500">
+                    <span className="text-sm font-medium">Verified Report</span>
+                    <Badge className="bg-orange-100 text-orange-800">+20 tokens</Badge>
+                  </div>
                 </div>
               </CardContent>
             </Card>
 
             {/* Reporting Guidelines */}
-            <Card className="border-0 shadow-card">
+            <Card className="border-0 shadow-card hover:shadow-lg transition-all duration-300 hover-scale">
               <CardHeader>
-                <CardTitle className="text-eco-dark">Reporting Guidelines</CardTitle>
+                <CardTitle className="text-eco-dark flex items-center">
+                  <CheckCircle className="h-5 w-5 mr-2" />
+                  Guidelines
+                </CardTitle>
               </CardHeader>
               <CardContent className="space-y-3">
-                <div className="text-sm space-y-2">
-                  <div className="flex items-start space-x-2">
+                <div className="space-y-3">
+                  <div className="flex items-start space-x-3 p-2 bg-eco-light rounded-lg">
                     <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
-                    <span>Be specific about the location</span>
+                    <span className="text-sm">Be specific about location</span>
                   </div>
-                  <div className="flex items-start space-x-2">
+                  <div className="flex items-start space-x-3 p-2 bg-eco-light rounded-lg">
                     <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
-                    <span>Include clear photos if possible</span>
+                    <span className="text-sm">Include clear photos</span>
                   </div>
-                  <div className="flex items-start space-x-2">
+                  <div className="flex items-start space-x-3 p-2 bg-eco-light rounded-lg">
                     <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
-                    <span>Categorize waste type accurately</span>
+                    <span className="text-sm">Categorize accurately</span>
                   </div>
-                  <div className="flex items-start space-x-2">
+                  <div className="flex items-start space-x-3 p-2 bg-eco-light rounded-lg">
                     <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
-                    <span>Report only public spaces</span>
+                    <span className="text-sm">Public spaces only</span>
                   </div>
-                  <div className="flex items-start space-x-2">
+                  <div className="flex items-start space-x-3 p-2 bg-eco-light rounded-lg">
                     <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
-                    <span>Avoid duplicate reports</span>
+                    <span className="text-sm">Avoid duplicates</span>
                   </div>
                 </div>
               </CardContent>
             </Card>
 
             {/* Recent Reports */}
-            <Card className="border-0 shadow-card">
+            <Card className="border-0 shadow-card hover:shadow-lg transition-all duration-300 hover-scale">
               <CardHeader>
-                <CardTitle className="text-eco-dark">Recent Reports</CardTitle>
+                <CardTitle className="text-eco-dark flex items-center">
+                  <Clock className="h-5 w-5 mr-2" />
+                  Recent Activity
+                </CardTitle>
               </CardHeader>
               <CardContent className="space-y-3">
-                <div className="text-xs space-y-3">
-                  <div className="p-3 bg-eco-light rounded-lg">
-                    <div className="font-medium mb-1">Central Park - Plastic bottles</div>
-                    <div className="text-muted-foreground">Reported 2 hours ago</div>
-                    <Badge variant="outline" className="mt-1 text-xs">Medium severity</Badge>
+                <div className="space-y-3">
+                  <div className="p-3 bg-gradient-to-r from-eco-light to-primary/5 rounded-lg border border-primary/20">
+                    <div className="font-medium text-sm mb-1">Central Park - Plastic bottles</div>
+                    <div className="text-xs text-muted-foreground mb-2">Reported 2 hours ago</div>
+                    <Badge variant="outline" className="text-xs">Medium severity</Badge>
                   </div>
-                  <div className="p-3 bg-eco-light rounded-lg">
-                    <div className="font-medium mb-1">Main Street - Construction debris</div>
-                    <div className="text-muted-foreground">Reported 1 day ago</div>
-                    <Badge variant="outline" className="mt-1 text-xs">High severity</Badge>
+                  <div className="p-3 bg-gradient-to-r from-eco-light to-orange/5 rounded-lg border border-orange/20">
+                    <div className="font-medium text-sm mb-1">Main Street - Construction debris</div>
+                    <div className="text-xs text-muted-foreground mb-2">Reported 1 day ago</div>
+                    <Badge variant="outline" className="text-xs">High severity</Badge>
                   </div>
-                  <div className="p-3 bg-eco-light rounded-lg">
-                    <div className="font-medium mb-1">River Park - Mixed waste</div>
-                    <div className="text-muted-foreground">Reported 2 days ago</div>
-                    <Badge variant="outline" className="mt-1 text-xs">Low severity</Badge>
+                  <div className="p-3 bg-gradient-to-r from-eco-light to-green/5 rounded-lg border border-green/20">
+                    <div className="font-medium text-sm mb-1">River Park - Mixed waste</div>
+                    <div className="text-xs text-muted-foreground mb-2">Reported 2 days ago</div>
+                    <Badge variant="outline" className="text-xs">Low severity</Badge>
                   </div>
                 </div>
               </CardContent>

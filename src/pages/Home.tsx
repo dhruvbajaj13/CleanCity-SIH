@@ -102,25 +102,57 @@ const Home = () => {
       </section>
 
       {/* Statistics Section */}
-      <section className="py-16 bg-gradient-to-r from-primary/5 to-eco-secondary/5">
+      <section className="py-20 bg-gradient-to-r from-primary/5 to-eco-secondary/10">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div className="animate-fade-in">
-              <div className="text-4xl font-bold text-primary mb-2">50,000+</div>
-              <div className="text-muted-foreground">Waste Reports</div>
-            </div>
-            <div className="animate-fade-in">
-              <div className="text-4xl font-bold text-primary mb-2">25 Tons</div>
-              <div className="text-muted-foreground">Waste Collected</div>
-            </div>
-            <div className="animate-fade-in">
-              <div className="text-4xl font-bold text-primary mb-2">10,000+</div>
-              <div className="text-muted-foreground">Active Users</div>
-            </div>
-            <div className="animate-fade-in">
-              <div className="text-4xl font-bold text-primary mb-2">100+</div>
-              <div className="text-muted-foreground">Cities Served</div>
-            </div>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-eco-dark mb-4">Our Impact So Far</h2>
+            <p className="text-lg text-muted-foreground">Real numbers from our community of eco-warriors</p>
+          </div>
+          
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <Card className="border-0 shadow-card hover:shadow-lg transition-all duration-300 hover-scale animate-fade-in group">
+              <CardContent className="p-8 text-center">
+                <div className="w-16 h-16 bg-gradient-to-br from-primary to-eco-secondary rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                  <MapPin className="h-8 w-8 text-white" />
+                </div>
+                <div className="text-4xl font-bold text-primary mb-2">50,000+</div>
+                <div className="text-muted-foreground font-medium">Waste Reports</div>
+                <div className="text-xs text-muted-foreground mt-1">Verified locations</div>
+              </CardContent>
+            </Card>
+            
+            <Card className="border-0 shadow-card hover:shadow-lg transition-all duration-300 hover-scale animate-fade-in group">
+              <CardContent className="p-8 text-center">
+                <div className="w-16 h-16 bg-gradient-to-br from-eco-secondary to-primary rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                  <Recycle className="h-8 w-8 text-white" />
+                </div>
+                <div className="text-4xl font-bold text-primary mb-2">25 Tons</div>
+                <div className="text-muted-foreground font-medium">Waste Collected</div>
+                <div className="text-xs text-muted-foreground mt-1">Diverted from landfills</div>
+              </CardContent>
+            </Card>
+            
+            <Card className="border-0 shadow-card hover:shadow-lg transition-all duration-300 hover-scale animate-fade-in group">
+              <CardContent className="p-8 text-center">
+                <div className="w-16 h-16 bg-gradient-to-br from-primary to-eco-secondary rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                  <Users className="h-8 w-8 text-white" />
+                </div>
+                <div className="text-4xl font-bold text-primary mb-2">10,000+</div>
+                <div className="text-muted-foreground font-medium">Active Users</div>
+                <div className="text-xs text-muted-foreground mt-1">Environmental heroes</div>
+              </CardContent>
+            </Card>
+            
+            <Card className="border-0 shadow-card hover:shadow-lg transition-all duration-300 hover-scale animate-fade-in group">
+              <CardContent className="p-8 text-center">
+                <div className="w-16 h-16 bg-gradient-to-br from-eco-secondary to-primary rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                  <Globe className="h-8 w-8 text-white" />
+                </div>
+                <div className="text-4xl font-bold text-primary mb-2">100+</div>
+                <div className="text-muted-foreground font-medium">Cities Served</div>
+                <div className="text-xs text-muted-foreground mt-1">Growing globally</div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
@@ -136,81 +168,75 @@ const Home = () => {
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-            <Card className="border-0 shadow-card hover:shadow-lg transition-all duration-300 hover-scale animate-fade-in">
-              <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-primary to-eco-secondary rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Smartphone className="h-8 w-8 text-white" />
+            <Card className="border-0 shadow-card hover:shadow-lg transition-all duration-300 hover-scale animate-fade-in group overflow-hidden">
+              <CardContent className="p-8 text-center relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-eco-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="relative z-10">
+                  <div className="w-20 h-20 bg-gradient-to-br from-primary to-eco-secondary rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <Smartphone className="h-10 w-10 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-semibold mb-4 text-eco-dark group-hover:text-primary transition-colors">Smart AI Detection</h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    Revolutionary AI-powered waste identification with GPS precision, photo verification, and real-time environmental impact tracking.
+                  </p>
+                  <div className="mt-4 flex justify-center">
+                    <Badge className="bg-blue-100 text-blue-800">95% Accuracy</Badge>
+                  </div>
                 </div>
-                <h3 className="text-2xl font-semibold mb-4 text-eco-dark">Smart Reporting</h3>
-                <p className="text-muted-foreground">
-                  AI-powered waste detection with GPS precision and photo verification. 
-                  Help create a comprehensive map of areas that need attention.
-                </p>
               </CardContent>
             </Card>
             
-            <Card className="border-0 shadow-card hover:shadow-lg transition-all duration-300 hover-scale animate-fade-in">
-              <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-primary to-eco-secondary rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Users className="h-8 w-8 text-white" />
+            <Card className="border-0 shadow-card hover:shadow-lg transition-all duration-300 hover-scale animate-fade-in group overflow-hidden">
+              <CardContent className="p-8 text-center relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-eco-secondary/5 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="relative z-10">
+                  <div className="w-20 h-20 bg-gradient-to-br from-eco-secondary to-primary rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <Users className="h-10 w-10 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-semibold mb-4 text-eco-dark group-hover:text-primary transition-colors">Global Community</h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    Join thousands of eco-warriors worldwide. Optimized collection routes, gamified challenges, and collaborative environmental action.
+                  </p>
+                  <div className="mt-4 flex justify-center">
+                    <Badge className="bg-green-100 text-green-800">10,000+ Active</Badge>
+                  </div>
                 </div>
-                <h3 className="text-2xl font-semibold mb-4 text-eco-dark">Collection Network</h3>
-                <p className="text-muted-foreground">
-                  Join our network of eco-warriors. Collect reported waste using optimized routes
-                  and earn rewards while making your community cleaner.
-                </p>
               </CardContent>
             </Card>
             
-            <Card className="border-0 shadow-card hover:shadow-lg transition-all duration-300 hover-scale animate-fade-in">
-              <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-primary to-eco-secondary rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Award className="h-8 w-8 text-white" />
+            <Card className="border-0 shadow-card hover:shadow-lg transition-all duration-300 hover-scale animate-fade-in group overflow-hidden">
+              <CardContent className="p-8 text-center relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-eco-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="relative z-10">
+                  <div className="w-20 h-20 bg-gradient-to-br from-primary to-eco-secondary rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <Award className="h-10 w-10 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-semibold mb-4 text-eco-dark group-hover:text-primary transition-colors">Blockchain Rewards</h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    Earn verified CleanTokens for every environmental action. Redeem for eco-products, donations, or exclusive sustainability perks.
+                  </p>
+                  <div className="mt-4 flex justify-center">
+                    <Badge className="bg-purple-100 text-purple-800">2.5M+ Tokens</Badge>
+                  </div>
                 </div>
-                <h3 className="text-2xl font-semibold mb-4 text-eco-dark">Reward System</h3>
-                <p className="text-muted-foreground">
-                  Earn CleanTokens for every action. Redeem for eco-friendly products, 
-                  discounts, or donate to environmental causes.
-                </p>
               </CardContent>
             </Card>
 
-            <Card className="border-0 shadow-card hover:shadow-lg transition-all duration-300 hover-scale animate-fade-in">
-              <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-primary to-eco-secondary rounded-full flex items-center justify-center mx-auto mb-6">
-                  <BarChart3 className="h-8 w-8 text-white" />
+            <Card className="border-0 shadow-card hover:shadow-lg transition-all duration-300 hover-scale animate-fade-in group overflow-hidden">
+              <CardContent className="p-8 text-center relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-eco-secondary/5 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="relative z-10">
+                  <div className="w-20 h-20 bg-gradient-to-br from-eco-secondary to-primary rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <BarChart3 className="h-10 w-10 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-semibold mb-4 text-eco-dark group-hover:text-primary transition-colors">Predictive Analytics</h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    Machine learning algorithms predict waste patterns, optimize routes, and maximize environmental impact through data-driven insights.
+                  </p>
+                  <div className="mt-4 flex justify-center">
+                    <Badge className="bg-orange-100 text-orange-800">40% More Efficient</Badge>
+                  </div>
                 </div>
-                <h3 className="text-2xl font-semibold mb-4 text-eco-dark">AI-Powered Analytics</h3>
-                <p className="text-muted-foreground">
-                  Advanced analytics help optimize collection routes and predict waste patterns 
-                  for maximum environmental impact.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-0 shadow-card hover:shadow-lg transition-all duration-300 hover-scale animate-fade-in">
-              <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-primary to-eco-secondary rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Shield className="h-8 w-8 text-white" />
-                </div>
-                <h3 className="text-2xl font-semibold mb-4 text-eco-dark">Verified Impact</h3>
-                <p className="text-muted-foreground">
-                  Blockchain-verified impact tracking ensures transparency and builds trust 
-                  in environmental action.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-0 shadow-card hover:shadow-lg transition-all duration-300 hover-scale animate-fade-in">
-              <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-primary to-eco-secondary rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Globe className="h-8 w-8 text-white" />
-                </div>
-                <h3 className="text-2xl font-semibold mb-4 text-eco-dark">Global Network</h3>
-                <p className="text-muted-foreground">
-                  Connect with eco-warriors worldwide. Share best practices and scale 
-                  environmental impact globally.
-                </p>
               </CardContent>
             </Card>
           </div>

@@ -9,6 +9,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { 
   User, 
   Mail, 
@@ -19,9 +20,16 @@ import {
   Trash2,
   Download,
   LogOut,
-  Save
+  Save,
+  Settings as SettingsIcon,
+  Lock,
+  Eye,
+  Smartphone,
+  Award,
+  Users
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import SettingsSection from "@/components/SettingsSection";
 
 const Settings = () => {
   const { toast } = useToast();
@@ -82,322 +90,262 @@ const Settings = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8">
-          {/* Profile Overview */}
-          <div className="space-y-6">
-            <Card className="border-0 shadow-card">
-              <CardContent className="p-6 text-center">
-                <div className="relative mb-4">
-                  <Avatar className="w-20 h-20 mx-auto">
-                    <AvatarImage src="/placeholder.svg" />
-                    <AvatarFallback className="text-xl">AJ</AvatarFallback>
-                  </Avatar>
-                  <Button
-                    size="sm"
-                    variant="outline"
-                    className="absolute -bottom-2 -right-2 w-8 h-8 rounded-full p-0"
-                  >
-                    <Camera className="h-3 w-3" />
-                  </Button>
-                </div>
-                <h3 className="font-semibold text-lg mb-1">{profileData.name}</h3>
-                <p className="text-muted-foreground text-sm mb-3">{profileData.email}</p>
-                <Badge className="bg-green-100 text-green-800 mb-3">
-                  Eco Champion
-                </Badge>
-                <div className="text-xs text-muted-foreground">
-                  Member since {profileData.joinDate}
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Account Stats */}
-            <Card className="border-0 shadow-card">
-              <CardHeader>
-                <CardTitle className="text-eco-dark">Your Impact</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-3">
-                <div className="flex justify-between">
-                  <span className="text-sm">Total Reports</span>
-                  <Badge variant="outline">42</Badge>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-sm">Collections</span>
-                  <Badge variant="outline">18</Badge>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-sm">CleanTokens</span>
-                  <Badge className="bg-green-100 text-green-800">1,250</Badge>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-sm">Community Rank</span>
-                  <Badge className="bg-blue-100 text-blue-800">#47</Badge>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-
-          {/* Main Settings */}
-          <div className="lg:col-span-2 space-y-6">
-            {/* Profile Information */}
-            <Card className="border-0 shadow-card">
-              <CardHeader>
-                <CardTitle className="flex items-center text-eco-dark">
-                  <User className="h-5 w-5 mr-2" />
-                  Profile Information
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="name">Full Name</Label>
-                    <Input
-                      id="name"
-                      value={profileData.name}
-                      onChange={(e) => setProfileData({...profileData, name: e.target.value})}
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="email">Email</Label>
-                    <Input
-                      id="email"
-                      type="email"
-                      value={profileData.email}
-                      onChange={(e) => setProfileData({...profileData, email: e.target.value})}
-                    />
-                  </div>
-                </div>
-                
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="phone">Phone</Label>
-                    <Input
-                      id="phone"
-                      value={profileData.phone}
-                      onChange={(e) => setProfileData({...profileData, phone: e.target.value})}
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="location">Location</Label>
-                    <Input
-                      id="location"
-                      value={profileData.location}
-                      onChange={(e) => setProfileData({...profileData, location: e.target.value})}
-                    />
-                  </div>
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="bio">Bio</Label>
-                  <Textarea
-                    id="bio"
-                    rows={3}
-                    value={profileData.bio}
-                    onChange={(e) => setProfileData({...profileData, bio: e.target.value})}
-                  />
-                </div>
-
-                <Button 
-                  onClick={handleSaveProfile}
-                  className="bg-gradient-to-r from-primary to-eco-secondary hover:opacity-90"
+        {/* Profile Overview */}
+        <div className="grid lg:grid-cols-4 gap-8 mb-8">
+          <Card className="border-0 shadow-card hover:shadow-lg transition-all duration-300">
+            <CardContent className="p-6 text-center">
+              <div className="relative mb-4">
+                <Avatar className="w-20 h-20 mx-auto">
+                  <AvatarImage src="/placeholder.svg" />
+                  <AvatarFallback className="text-xl">AJ</AvatarFallback>
+                </Avatar>
+                <Button
+                  size="sm"
+                  variant="outline"
+                  className="absolute -bottom-2 -right-2 w-8 h-8 rounded-full p-0"
                 >
-                  <Save className="h-4 w-4 mr-2" />
-                  Save Profile
+                  <Camera className="h-3 w-3" />
                 </Button>
-              </CardContent>
-            </Card>
+              </div>
+              <h3 className="font-semibold text-lg mb-1">{profileData.name}</h3>
+              <p className="text-muted-foreground text-sm mb-3">{profileData.email}</p>
+              <Badge className="bg-green-100 text-green-800 mb-3">
+                Eco Champion
+              </Badge>
+              <div className="text-xs text-muted-foreground">
+                Member since {profileData.joinDate}
+              </div>
+            </CardContent>
+          </Card>
 
-            {/* Notification Settings */}
-            <Card className="border-0 shadow-card">
-              <CardHeader>
-                <CardTitle className="flex items-center text-eco-dark">
-                  <Bell className="h-5 w-5 mr-2" />
-                  Notification Preferences
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <Label htmlFor="email-reports">Email Reports</Label>
-                    <p className="text-sm text-muted-foreground">Receive email notifications for report updates</p>
-                  </div>
-                  <Switch
-                    id="email-reports"
-                    checked={notifications.emailReports}
-                    onCheckedChange={(checked) => setNotifications({...notifications, emailReports: checked})}
-                  />
-                </div>
+          <Card className="border-0 shadow-card hover:shadow-lg transition-all duration-300">
+            <CardContent className="p-6 text-center">
+              <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                <MapPin className="h-6 w-6 text-white" />
+              </div>
+              <div className="text-2xl font-bold text-primary mb-1">42</div>
+              <div className="text-sm text-muted-foreground">Total Reports</div>
+            </CardContent>
+          </Card>
 
-                <Separator />
+          <Card className="border-0 shadow-card hover:shadow-lg transition-all duration-300">
+            <CardContent className="p-6 text-center">
+              <div className="w-12 h-12 bg-eco-secondary rounded-full flex items-center justify-center mx-auto mb-4">
+                <Award className="h-6 w-6 text-white" />
+              </div>
+              <div className="text-2xl font-bold text-primary mb-1">1,250</div>
+              <div className="text-sm text-muted-foreground">CleanTokens</div>
+            </CardContent>
+          </Card>
 
-                <div className="flex items-center justify-between">
-                  <div>
-                    <Label htmlFor="push-notifications">Push Notifications</Label>
-                    <p className="text-sm text-muted-foreground">Get instant notifications on your device</p>
-                  </div>
-                  <Switch
-                    id="push-notifications"
-                    checked={notifications.pushNotifications}
-                    onCheckedChange={(checked) => setNotifications({...notifications, pushNotifications: checked})}
-                  />
-                </div>
-
-                <Separator />
-
-                <div className="flex items-center justify-between">
-                  <div>
-                    <Label htmlFor="weekly-updates">Weekly Updates</Label>
-                    <p className="text-sm text-muted-foreground">Weekly summary of your environmental impact</p>
-                  </div>
-                  <Switch
-                    id="weekly-updates"
-                    checked={notifications.weeklyUpdates}
-                    onCheckedChange={(checked) => setNotifications({...notifications, weeklyUpdates: checked})}
-                  />
-                </div>
-
-                <Separator />
-
-                <div className="flex items-center justify-between">
-                  <div>
-                    <Label htmlFor="community-events">Community Events</Label>
-                    <p className="text-sm text-muted-foreground">Notifications about local cleanup events</p>
-                  </div>
-                  <Switch
-                    id="community-events"
-                    checked={notifications.communityEvents}
-                    onCheckedChange={(checked) => setNotifications({...notifications, communityEvents: checked})}
-                  />
-                </div>
-
-                <Separator />
-
-                <div className="flex items-center justify-between">
-                  <div>
-                    <Label htmlFor="reward-alerts">Reward Alerts</Label>
-                    <p className="text-sm text-muted-foreground">Get notified about new rewards and achievements</p>
-                  </div>
-                  <Switch
-                    id="reward-alerts"
-                    checked={notifications.rewardAlerts}
-                    onCheckedChange={(checked) => setNotifications({...notifications, rewardAlerts: checked})}
-                  />
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Privacy Settings */}
-            <Card className="border-0 shadow-card">
-              <CardHeader>
-                <CardTitle className="flex items-center text-eco-dark">
-                  <Shield className="h-5 w-5 mr-2" />
-                  Privacy & Security
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="space-y-2">
-                  <Label htmlFor="profile-visibility">Profile Visibility</Label>
-                  <Select 
-                    value={privacy.profileVisibility} 
-                    onValueChange={(value) => setPrivacy({...privacy, profileVisibility: value})}
-                  >
-                    <SelectTrigger>
-                      <SelectValue />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="public">Public - Visible to all users</SelectItem>
-                      <SelectItem value="community">Community - Visible to CleanCity members</SelectItem>
-                      <SelectItem value="private">Private - Only visible to you</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-
-                <Separator />
-
-                <div className="flex items-center justify-between">
-                  <div>
-                    <Label htmlFor="show-location">Show Location</Label>
-                    <p className="text-sm text-muted-foreground">Display your general location on your profile</p>
-                  </div>
-                  <Switch
-                    id="show-location"
-                    checked={privacy.showLocation}
-                    onCheckedChange={(checked) => setPrivacy({...privacy, showLocation: checked})}
-                  />
-                </div>
-
-                <Separator />
-
-                <div className="flex items-center justify-between">
-                  <div>
-                    <Label htmlFor="show-stats">Show Statistics</Label>
-                    <p className="text-sm text-muted-foreground">Display your environmental impact stats publicly</p>
-                  </div>
-                  <Switch
-                    id="show-stats"
-                    checked={privacy.showStats}
-                    onCheckedChange={(checked) => setPrivacy({...privacy, showStats: checked})}
-                  />
-                </div>
-
-                <Separator />
-
-                <div className="flex items-center justify-between">
-                  <div>
-                    <Label htmlFor="data-sharing">Data Sharing for Research</Label>
-                    <p className="text-sm text-muted-foreground">Share anonymized data for environmental research</p>
-                  </div>
-                  <Switch
-                    id="data-sharing"
-                    checked={privacy.dataSharing}
-                    onCheckedChange={(checked) => setPrivacy({...privacy, dataSharing: checked})}
-                  />
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Account Actions */}
-            <Card className="border-0 shadow-card">
-              <CardHeader>
-                <CardTitle className="text-eco-dark">Account Actions</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="flex justify-between items-center p-4 bg-blue-50 rounded-lg">
-                  <div>
-                    <h4 className="font-medium">Export Your Data</h4>
-                    <p className="text-sm text-muted-foreground">Download all your account data and activity</p>
-                  </div>
-                  <Button variant="outline" onClick={handleExportData}>
-                    <Download className="h-4 w-4 mr-2" />
-                    Export
-                  </Button>
-                </div>
-
-                <div className="flex justify-between items-center p-4 bg-yellow-50 rounded-lg">
-                  <div>
-                    <h4 className="font-medium">Sign Out</h4>
-                    <p className="text-sm text-muted-foreground">Sign out of your account on all devices</p>
-                  </div>
-                  <Button variant="outline">
-                    <LogOut className="h-4 w-4 mr-2" />
-                    Sign Out
-                  </Button>
-                </div>
-
-                <div className="flex justify-between items-center p-4 bg-red-50 rounded-lg">
-                  <div>
-                    <h4 className="font-medium text-red-600">Delete Account</h4>
-                    <p className="text-sm text-muted-foreground">Permanently delete your account and all data</p>
-                  </div>
-                  <Button variant="destructive" onClick={handleDeleteAccount}>
-                    <Trash2 className="h-4 w-4 mr-2" />
-                    Delete
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
+          <Card className="border-0 shadow-card hover:shadow-lg transition-all duration-300">
+            <CardContent className="p-6 text-center">
+              <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Users className="h-6 w-6 text-white" />
+              </div>
+              <div className="text-2xl font-bold text-primary mb-1">#47</div>
+              <div className="text-sm text-muted-foreground">Community Rank</div>
+            </CardContent>
+          </Card>
         </div>
+
+        {/* Settings Tabs */}
+        <Tabs defaultValue="profile" className="space-y-6">
+          <TabsList className="grid w-full grid-cols-4">
+            <TabsTrigger value="profile" className="flex items-center">
+              <User className="h-4 w-4 mr-2" />
+              Profile
+            </TabsTrigger>
+            <TabsTrigger value="notifications" className="flex items-center">
+              <Bell className="h-4 w-4 mr-2" />
+              Notifications
+            </TabsTrigger>
+            <TabsTrigger value="privacy" className="flex items-center">
+              <Shield className="h-4 w-4 mr-2" />
+              Privacy
+            </TabsTrigger>
+            <TabsTrigger value="security" className="flex items-center">
+              <Lock className="h-4 w-4 mr-2" />
+              Security
+            </TabsTrigger>
+          </TabsList>
+
+          <TabsContent value="profile" className="space-y-6">
+            <SettingsSection
+              title="Profile Information"
+              icon={<User className="h-5 w-5 mr-2" />}
+              items={[
+                {
+                  id: "name",
+                  title: "Full Name",
+                  value: profileData.name,
+                  description: "Your display name across the platform"
+                },
+                {
+                  id: "email",
+                  title: "Email Address",
+                  value: profileData.email,
+                  description: "Primary contact email",
+                  status: "active"
+                },
+                {
+                  id: "phone",
+                  title: "Phone Number",
+                  value: profileData.phone,
+                  description: "For account recovery and alerts"
+                },
+                {
+                  id: "location",
+                  title: "Location",
+                  value: profileData.location,
+                  description: "Your general location for local content"
+                },
+                {
+                  id: "bio",
+                  title: "Bio",
+                  value: profileData.bio.substring(0, 50) + "...",
+                  description: "Tell others about your environmental mission"
+                }
+              ]}
+              onItemClick={(id) => toast({ title: "Edit Profile", description: `Edit ${id} clicked` })}
+            />
+          </TabsContent>
+
+          <TabsContent value="notifications" className="space-y-6">
+            <SettingsSection
+              title="Notification Preferences"
+              icon={<Bell className="h-5 w-5 mr-2" />}
+              items={[
+                {
+                  id: "email-reports",
+                  title: "Email Reports",
+                  value: notifications.emailReports ? "Enabled" : "Disabled",
+                  description: "Receive email notifications for report updates",
+                  status: notifications.emailReports ? "active" : "inactive"
+                },
+                {
+                  id: "push-notifications",
+                  title: "Push Notifications",
+                  value: notifications.pushNotifications ? "Enabled" : "Disabled",
+                  description: "Get instant notifications on your device",
+                  status: notifications.pushNotifications ? "active" : "inactive"
+                },
+                {
+                  id: "weekly-updates",
+                  title: "Weekly Updates",
+                  value: notifications.weeklyUpdates ? "Enabled" : "Disabled",
+                  description: "Weekly summary of your environmental impact",
+                  status: notifications.weeklyUpdates ? "active" : "inactive"
+                },
+                {
+                  id: "community-events",
+                  title: "Community Events",
+                  value: notifications.communityEvents ? "Enabled" : "Disabled",
+                  description: "Notifications about local cleanup events",
+                  status: notifications.communityEvents ? "active" : "inactive"
+                },
+                {
+                  id: "reward-alerts",
+                  title: "Reward Alerts",
+                  value: notifications.rewardAlerts ? "Enabled" : "Disabled",
+                  description: "Get notified about new rewards and achievements",
+                  status: notifications.rewardAlerts ? "active" : "inactive"
+                }
+              ]}
+              onItemClick={(id) => toast({ title: "Notification Settings", description: `${id} setting clicked` })}
+            />
+          </TabsContent>
+
+          <TabsContent value="privacy" className="space-y-6">
+            <SettingsSection
+              title="Privacy Settings"
+              icon={<Eye className="h-5 w-5 mr-2" />}
+              items={[
+                {
+                  id: "profile-visibility",
+                  title: "Profile Visibility",
+                  value: privacy.profileVisibility.charAt(0).toUpperCase() + privacy.profileVisibility.slice(1),
+                  description: "Who can see your profile information",
+                  status: "active"
+                },
+                {
+                  id: "show-location",
+                  title: "Location Sharing",
+                  value: privacy.showLocation ? "Enabled" : "Disabled",
+                  description: "Display your general location on your profile",
+                  status: privacy.showLocation ? "active" : "inactive"
+                },
+                {
+                  id: "show-stats",
+                  title: "Statistics Visibility",
+                  value: privacy.showStats ? "Public" : "Private",
+                  description: "Display your environmental impact stats publicly",
+                  status: privacy.showStats ? "active" : "inactive"
+                },
+                {
+                  id: "data-sharing",
+                  title: "Research Data Sharing",
+                  value: privacy.dataSharing ? "Enabled" : "Disabled",
+                  description: "Share anonymized data for environmental research",
+                  status: privacy.dataSharing ? "active" : "inactive"
+                }
+              ]}
+              onItemClick={(id) => toast({ title: "Privacy Settings", description: `${id} setting clicked` })}
+            />
+          </TabsContent>
+
+          <TabsContent value="security" className="space-y-6">
+            <SettingsSection
+              title="Security & Account"
+              icon={<Lock className="h-5 w-5 mr-2" />}
+              items={[
+                {
+                  id: "password",
+                  title: "Password",
+                  value: "••••••••",
+                  description: "Last changed 3 months ago",
+                  status: "active"
+                },
+                {
+                  id: "two-factor",
+                  title: "Two-Factor Authentication",
+                  value: "Disabled",
+                  description: "Add an extra layer of security",
+                  status: "inactive"
+                },
+                {
+                  id: "sessions",
+                  title: "Active Sessions",
+                  value: "3 devices",
+                  description: "Manage your logged-in devices",
+                  status: "active"
+                },
+                {
+                  id: "export-data",
+                  title: "Export Data",
+                  value: "Download",
+                  description: "Get a copy of all your account data"
+                },
+                {
+                  id: "delete-account",
+                  title: "Delete Account",
+                  value: "Permanently Delete",
+                  description: "This action cannot be undone",
+                  status: "pending"
+                }
+              ]}
+              onItemClick={(id) => {
+                if (id === "export-data") {
+                  handleExportData();
+                } else if (id === "delete-account") {
+                  handleDeleteAccount();
+                } else {
+                  toast({ title: "Security Settings", description: `${id} setting clicked` });
+                }
+              }}
+            />
+          </TabsContent>
+        </Tabs>
       </div>
     </div>
   );

@@ -21,7 +21,8 @@ import {
   CheckCircle,
   Award,
   Target,
-  Heart
+  Heart,
+  MapPin
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import wasteFacilityImage from "@/assets/waste-facility.jpg";
@@ -37,27 +38,69 @@ const About = () => {
       <div className="container mx-auto px-4 max-w-6xl">
         {/* Header */}
         <div className="text-center mb-16">
-          <Badge className="mb-4 bg-green-100 text-green-800">About CleanCity</Badge>
-          <h1 className="text-5xl font-bold text-eco-dark mb-6 animate-fade-in">
-            Revolutionizing Waste Management
+          <div className="inline-flex items-center px-6 py-3 mb-6 bg-gradient-to-r from-primary/10 to-eco-secondary/10 backdrop-blur-sm rounded-full animate-scale-in">
+            <Globe className="h-5 w-5 mr-2 text-primary" />
+            <span className="text-primary font-semibold">About CleanCity</span>
+          </div>
+          <h1 className="text-6xl font-bold text-eco-dark mb-6 animate-fade-in relative">
+            <span className="bg-gradient-to-r from-primary to-eco-secondary bg-clip-text text-transparent">
+              Revolutionizing
+            </span>
+            <br />
+            Waste Management
+            <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 to-eco-secondary/20 blur-lg opacity-30 -z-10 animate-pulse"></div>
           </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto animate-fade-in">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto animate-fade-in leading-relaxed">
             Discover how CleanCity is transforming communities through smart waste management, 
             the science behind the 3Rs principle, and our mission to create a sustainable future.
           </p>
+          <div className="mt-8 flex justify-center space-x-4 animate-fade-in">
+            <Button asChild size="lg" className="bg-gradient-to-r from-primary to-eco-secondary hover:opacity-90 hover-scale">
+              <Link to="/report">
+                <MapPin className="h-5 w-5 mr-2" />
+                Start Your Impact
+              </Link>
+            </Button>
+            <Button asChild size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white hover-scale">
+              <Link to="#mission">
+                <ArrowRight className="h-5 w-5 mr-2" />
+                Learn More
+              </Link>
+            </Button>
+          </div>
         </div>
 
         {/* Mission Statement */}
         <section className="mb-20">
-          <Card className="border-0 shadow-card bg-gradient-to-r from-primary/5 to-eco-secondary/5">
-            <CardContent className="p-12 text-center">
-              <h2 className="text-3xl font-bold text-eco-dark mb-6">Our Mission</h2>
-              <p className="text-xl text-muted-foreground leading-relaxed max-w-4xl mx-auto">
-                To create the world's most effective waste management ecosystem by connecting communities, 
-                leveraging cutting-edge technology, and rewarding environmental action. We believe that 
-                everyone can be an environmental hero, and together we can build cleaner, 
-                more sustainable cities for future generations.
-              </p>
+          <Card className="border-0 shadow-card bg-gradient-to-r from-primary/5 to-eco-secondary/5 hover:shadow-lg transition-all duration-500 hover-scale group overflow-hidden animate-fade-in">
+            <CardContent className="p-12 text-center relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-eco-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="relative z-10">
+                <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-primary to-eco-secondary rounded-full mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <Target className="h-10 w-10 text-white" />
+                </div>
+                <h2 className="text-4xl font-bold text-eco-dark mb-6 group-hover:text-primary transition-colors duration-300">Our Mission</h2>
+                <p className="text-xl text-muted-foreground leading-relaxed max-w-4xl mx-auto">
+                  To create the world's most effective waste management ecosystem by connecting communities, 
+                  leveraging cutting-edge technology, and rewarding environmental action. We believe that 
+                  everyone can be an environmental hero, and together we can build cleaner, 
+                  more sustainable cities for future generations.
+                </p>
+                <div className="mt-8 grid md:grid-cols-3 gap-6">
+                  <div className="p-4 bg-white/50 rounded-lg backdrop-blur-sm">
+                    <div className="text-2xl font-bold text-primary mb-2">10,000+</div>
+                    <div className="text-sm text-muted-foreground">Community Members</div>
+                  </div>
+                  <div className="p-4 bg-white/50 rounded-lg backdrop-blur-sm">
+                    <div className="text-2xl font-bold text-primary mb-2">100+</div>
+                    <div className="text-sm text-muted-foreground">Cities Worldwide</div>
+                  </div>
+                  <div className="p-4 bg-white/50 rounded-lg backdrop-blur-sm">
+                    <div className="text-2xl font-bold text-primary mb-2">25 Tons</div>
+                    <div className="text-sm text-muted-foreground">Waste Collected</div>
+                  </div>
+                </div>
+              </div>
             </CardContent>
           </Card>
         </section>
