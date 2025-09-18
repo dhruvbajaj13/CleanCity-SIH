@@ -1,5 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { useRef, useState } from "react";
+
 import { Badge } from "@/components/ui/badge";
 import { 
   Play, 
@@ -21,6 +23,7 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import heroImage from "@/assets/waste-collection-hero.jpg";
+import video from "@/assets/video.mp4"
 import wasteSortingImage from "@/assets/waste-sorting.jpg";
 import communityCleanupImage from "@/assets/community-cleanup.jpg";
 import wasteFacilityImage from "@/assets/waste-facility.jpg";
@@ -28,7 +31,19 @@ import beachCleanupImage from "@/assets/beach-cleanup.jpg";
 import smartBinsImage from "@/assets/smart-bins.jpg";
 import recyclingGuideImage from "@/assets/recycling-guide.jpg";
 
+
+
 const Home = () => {
+  
+  const videoRef = useRef(null);
+  const [showButton, setShowButton] = useState(true);
+
+  const handlePlay = () => {
+    if (videoRef.current) {
+      videoRef.current.play();
+      setShowButton(false); // hide button after click
+    }
+  };
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -41,9 +56,9 @@ const Home = () => {
         />
         <div className="absolute inset-0 bg-gradient-to-r from-eco-primary/80 to-eco-secondary/70" />
         
-        <div className="relative z-10 container mx-auto px-4 text-center text-white">
-          <div className="inline-flex items-center px-4 py-2 mb-6 bg-white/20 backdrop-blur-sm rounded-full text-sm font-medium animate-scale-in">
-            <Users className="h-4 w-4 mr-2" />
+        <div className="relative z-10 container mx-auto  px-4 text-center text-white">
+          <div className="inline-flex items-center px-4  py-2 mb-6 bg-white/20 backdrop-blur-sm rounded-full text-sm font-medium animate-scale-in">
+            <Users className="h-4 w-4 mr-2 " />
             Join 10,000+ Eco Warriors
           </div>
           
@@ -57,13 +72,13 @@ const Home = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8 animate-fade-in">
-            <Button asChild size="lg" className="bg-white text-eco-primary hover:bg-white/90 font-semibold hover-scale">
+            <Button asChild size="lg" className="bg-white text-eco-primary hover:bg-white/90 font-semibold text-md hover-scale">
               <Link to="/report">
-                <MapPin className="h-5 w-5 mr-2" />
+                <MapPin className="h-5 w-5 mr-2 " />
                 Report Waste
               </Link>
             </Button>
-            <Button asChild size="lg" variant="secondary" className="bg-white/20 text-white border-white/30 hover:bg-white hover:text-eco-primary backdrop-blur-sm hover-scale">
+            <Button asChild size="lg" variant="secondary" className="bg-white/20 text-white text-md border-white/30 hover:bg-white hover:text-eco-primary backdrop-blur-sm hover-scale">
               <Link to="/collect">
                 <Recycle className="h-5 w-5 mr-2" />
                 Collect Waste
@@ -72,10 +87,13 @@ const Home = () => {
           </div>
           
           <div className="flex justify-center items-center space-x-8 mb-8">
-            <button className="inline-flex items-center text-white/90 hover:text-white transition-colors story-link">
-              <Play className="h-5 w-5 mr-2" />
-              Watch Demo Video
-            </button>
+            <Button asChild size="lg"  className="inline-flex items-center text-eco-primary bg-white font-semibold text-md  hover:bg-white/90 transition-colors story-link">
+              <Link to="/report">
+                   <Play className="h-5 w-5 mr-2" />
+                   Watch Demo Video
+              </Link>
+              
+            </Button>
             <div className="hidden md:flex items-center space-x-6 text-white/80">
               <div className="text-center">
                 <div className="text-2xl font-bold">50K+</div>
@@ -110,7 +128,7 @@ const Home = () => {
           </div>
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <Card className="border-0 shadow-card hover:shadow-lg transition-all duration-300 hover-scale animate-fade-in group">
+            <Card className=" shadow-card hover:shadow-lg transition-all  duration-300 hover-scale animate-fade-in group">
               <CardContent className="p-8 text-center">
                 <div className="w-16 h-16 bg-gradient-to-br from-primary to-eco-secondary rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                   <MapPin className="h-8 w-8 text-white" />
@@ -376,16 +394,30 @@ const Home = () => {
 
           {/* Video Section */}
           <div className="text-center mb-16">
-            <h3 className="text-3xl font-bold mb-6 text-eco-dark">How CleanCity Works</h3>
-            <div className="relative max-w-4xl mx-auto">
-              <div className="aspect-video bg-gradient-to-r from-primary/20 to-eco-secondary/20 rounded-lg flex items-center justify-center">
-                <Button size="lg" className="bg-white/90 text-primary hover:bg-white hover-scale">
-                  <Play className="h-8 w-8 mr-3" />
-                  Watch Demo Video
-                </Button>
-              </div>
+          <h3 className="text-3xl font-bold mb-6 text-eco-dark">How CleanCity Works</h3>
+          <div className="relative max-w-4xl mx-auto">
+            <div className="aspect-video rounded-lg overflow-hidden relative">
+              <video
+                ref={videoRef}
+                src={video}
+                controls
+                className="w-full h-full rounded-lg"
+              />
+
+              {showButton && (
+                <button
+                  onClick={handlePlay}
+                  className="absolute inset-0 flex items-center justify-center bg-black/40 hover:bg-black/50 transition"
+                >
+                  <div className="flex items-center bg-white/90 px-6 py-3 rounded-xl shadow-lg hover:scale-105 transition">
+                    <Play className="h-8 w-8 mr-3 text-primary" />
+                    <span className="text-primary font-semibold">Watch Demo Video</span>
+                  </div>
+                </button>
+              )}
             </div>
           </div>
+        </div>
         </div>
       </section>
 
@@ -522,7 +554,7 @@ const Home = () => {
                 Join Collection Network
               </Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-primary hover-scale">
+            <Button asChild size="lg" variant="outline" className="bg-white text-primary hover:text-primary hover:bg-white/90 font-semibold hover-scale">
               <Link to="/rewards">
                 <Award className="h-5 w-5 mr-2" />
                 View Rewards

@@ -14,7 +14,7 @@ const Footer = () => {
                 CleanCity
               </span>
             </Link>
-            <p className="text-muted-foreground text-sm">
+            <p className="text-muted-foreground text-lg">
               Transforming communities through smart waste management. Join thousands of eco-warriors making a difference.
             </p>
             <div className="flex space-x-4">
@@ -26,84 +26,82 @@ const Footer = () => {
           </div>
 
           {/* Quick Links */}
-          <div className="space-y-4">
-            <h4 className="font-semibold text-foreground">Quick Links</h4>
+          <div className="space-y-4 ml-16">
+            <h4 className="font-semibold text-xl text-foreground">Quick Links</h4>
             <div className="space-y-2">
-              <Link to="/" className="block text-sm text-muted-foreground hover:text-primary transition-colors story-link">
+              <Link to="/" className="block  cursor-pointer hover:underline text-md text-muted-foreground hover:text-primary transition-colors story-link">
                 Home
               </Link>
-              <Link to="/report" className="block text-sm text-muted-foreground hover:text-primary transition-colors story-link">
+              <Link to="/report" className="block  cursor-pointer hover:underline text-md text-muted-foreground hover:text-primary transition-colors story-link">
                 Report Waste
               </Link>
-              <Link to="/collect" className="block text-sm text-muted-foreground hover:text-primary transition-colors story-link">
+              <Link to="/collect" className="block  cursor-pointer hover:underline text-md text-muted-foreground hover:text-primary transition-colors story-link">
                 Collect Waste
               </Link>
-              <Link to="/rewards" className="block text-sm text-muted-foreground hover:text-primary transition-colors story-link">
+              <Link to="/rewards" className="block cursor-pointer hover:underline  text-md  text-muted-foreground hover:text-primary transition-colors story-link">
                 Rewards
               </Link>
-              <Link to="/about" className="block text-sm text-muted-foreground hover:text-primary transition-colors story-link">
+              <Link to="/about" className="block cursor-pointer hover:underline  text-md  text-muted-foreground hover:text-primary transition-colors story-link">
                 About Us
               </Link>
-              <Link to="/dashboard" className="block text-sm text-muted-foreground hover:text-primary transition-colors story-link">
-                Dashboard
-              </Link>
+              
             </div>
           </div>
 
           {/* Resources */}
           <div className="space-y-4">
-            <h4 className="font-semibold text-foreground">Resources</h4>
+            <h4 className="font-semibold text-xl text-foreground">Resources</h4>
             <div className="space-y-2">
-              <a href="#" className="block text-sm text-muted-foreground hover:text-primary transition-colors story-link">
+              <a href="#" className="block text-md cursor-pointer hover:underline text-muted-foreground hover:text-primary transition-colors story-link">
                 Waste Management Guide
               </a>
-              <a href="#" className="block text-sm text-muted-foreground hover:text-primary transition-colors story-link">
+              <a href="#" className="block text-md cursor-pointer hover:underline text-muted-foreground hover:text-primary transition-colors story-link">
                 Recycling Tips
               </a>
-              <a href="#" className="block text-sm text-muted-foreground hover:text-primary transition-colors story-link">
+              <a href="#" className="block text-md cursor-pointer hover:underline text-muted-foreground hover:text-primary transition-colors story-link">
                 Community Events
               </a>
-              <a href="#" className="block text-sm text-muted-foreground hover:text-primary transition-colors story-link">
+              <a href="#" className="block text-md cursor-pointer hover:underline text-muted-foreground hover:text-primary transition-colors story-link">
                 Environmental Impact
               </a>
-              <a href="#" className="block text-sm text-muted-foreground hover:text-primary transition-colors story-link">
+              <a href="#" className="block text-md cursor-pointer hover:underline text-muted-foreground hover:text-primary transition-colors story-link">
                 Help Center
               </a>
             </div>
           </div>
 
           {/* Contact Info */}
-          <div className="space-y-4">
-            <h4 className="font-semibold text-foreground">Contact Us</h4>
+          <div className="space-y-2">
+            <h4 className="font-semibold text-xl text-foreground">Contact Us</h4>
             <div className="space-y-3">
-              <div className="flex items-center space-x-3 text-sm text-muted-foreground">
+              <div className="flex items-center  text-md space-x-3 text-muted-foreground">
                 <Mail className="h-4 w-4" />
                 <span>support@cleancity.app</span>
               </div>
-              <div className="flex items-center space-x-3 text-sm text-muted-foreground">
+              <div className="flex items-center text-md  space-x-3 text-muted-foreground">
                 <Phone className="h-4 w-4" />
-                <span>+1 (555) 123-4567</span>
+                <span>011-25567347</span>
               </div>
-              <div className="flex items-center space-x-3 text-sm text-muted-foreground">
+              <div className="flex items-center  text-md space-x-3 text-muted-foreground">
                 <MapPin className="h-4 w-4" />
-                <span>San Francisco, CA</span>
+                <span>New Delhi, India</span>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="border-t border-border/40 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <div className="text-sm text-muted-foreground">
-            © 2024 CleanCity. All rights reserved.
+        <div className="border-t border-border/90 mt-4 pt-4 mb-[-26px] flex flex-col md:flex-row justify-between items-center">
+          <div className="text-md text-muted-foreground">
+            © 2025 CleanCity. All rights reserved.
           </div>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors story-link">
+            <a href="#" className="text-md cursor-pointer hover:underline text-muted-foreground hover:text-primary transition-colors story-link">
               Privacy Policy
             </a>
-            <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors story-link">
+            <a href="#" className="text-md cursor-pointer hover:underline text-muted-foreground hover:text-primary transition-colors story-link">
               Terms of Service
             </a>
-            <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors story-link">
+            <a href="#" className="text-md cursor-pointer hover:underline text-muted-foreground hover:text-primary transition-colors story-link">
               Cookie Policy
             </a>
           </div>

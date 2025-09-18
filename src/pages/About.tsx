@@ -25,6 +25,8 @@ import {
   MapPin
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useRef, useState } from "react";
+import video from "@/assets/video.mp4"
 import wasteFacilityImage from "@/assets/waste-facility.jpg";
 import beachCleanupImage from "@/assets/beach-cleanup.jpg";
 import smartBinsImage from "@/assets/smart-bins.jpg";
@@ -33,6 +35,15 @@ import wasteSortingImage from "@/assets/waste-sorting.jpg";
 import communityCleanupImage from "@/assets/community-cleanup.jpg";
 
 const About = () => {
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+  const [showButton, setShowButton] = useState(true);
+
+  const handlePlay = () => {
+    if (videoRef.current) {
+      videoRef.current.play();
+      setShowButton(false);
+    }
+  };
   return (
     <div className="min-h-screen bg-background py-8">
       <div className="container mx-auto px-4 max-w-6xl">
@@ -216,17 +227,38 @@ const About = () => {
           </div>
 
           {/* Video Demo */}
-          <div className="text-center mb-16">
-            <h3 className="text-3xl font-bold mb-6 text-eco-dark">See CleanCity in Action</h3>
-            <div className="relative max-w-4xl mx-auto">
-              <div className="aspect-video bg-gradient-to-r from-primary/20 to-eco-secondary/20 rounded-lg flex items-center justify-center hover-scale">
-                <Button size="lg" className="bg-white/90 text-primary hover:bg-white">
-                  <Play className="h-8 w-8 mr-3" />
-                  Watch Platform Demo
-                </Button>
+              <div className="text-center mb-16">
+      <h3 className="text-3xl font-bold mb-6 text-eco-dark">
+        How CleanCity Works
+      </h3>
+
+      <div className="relative max-w-4xl mx-auto">
+        <div className="aspect-video rounded-lg overflow-hidden relative">
+          <video
+            ref={videoRef}
+            src={video} // replace with your `video` import/prop
+            controls
+            className="w-full h-full rounded-lg"
+          />
+
+          {showButton && (
+            <button
+              onClick={handlePlay}
+              className="absolute inset-0 flex items-center justify-center bg-black/40 hover:bg-black/50 transition"
+            >
+              <div className="flex items-center bg-white/90 px-6 py-3 rounded-xl shadow-lg hover:scale-105 transition">
+                <Play className="h-8 w-8 mr-3 text-primary" />
+                <span className="text-primary font-semibold">
+                  Watch Demo Video
+                </span>
               </div>
-            </div>
-          </div>
+            </button>
+          )}
+        </div>
+      </div>
+    </div>
+  
+
         </section>
 
         {/* The 3Rs Principle */}
@@ -726,7 +758,7 @@ const About = () => {
                     Join the Movement
                   </Link>
                 </Button>
-                <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-primary hover-scale">
+                <Button asChild size="lg" variant="outline" className="bg-white text-primary hover:bg-white/90 hover-scale">
                   <Link to="/report">
                     <ArrowRight className="h-5 w-5 mr-2" />
                     Start Making Impact

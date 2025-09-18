@@ -24,7 +24,7 @@ const Navbar = () => {
   return (
     <nav className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto px-4">
-        <div className="flex h-20 items-center justify-between">
+        <div className="flex h-20 items-center justify-between ml-6">
           <Link to="/" className="flex items-center space-x-2">
             <Leaf className="h-8 w-8 text-primary" />
             <span className="text-2xl font-bold bg-gradient-to-r from-primary to-eco-secondary bg-clip-text text-transparent">
@@ -38,7 +38,7 @@ const Navbar = () => {
               <Link
                 key={item.name}
                 to={item.path}
-                className={`relative text-sm font-medium transition-colors hover:text-primary group ${
+                className={`relative text-md font-semibold transition-colors hover:text-primary group ${
                   isActive(item.path) ? "text-primary" : "text-muted-foreground"
                 }`}
               >
@@ -48,7 +48,7 @@ const Navbar = () => {
             ))}
           </div>
 
-          <div className="hidden md:flex items-center space-x-4">
+          <div className="hidden md:flex items-center space-x-4 ml-[-10px]">
             <Button
               variant="ghost"
               size="sm"

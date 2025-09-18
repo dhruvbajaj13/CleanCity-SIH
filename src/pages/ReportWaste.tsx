@@ -321,35 +321,39 @@ const ReportWaste = () => {
             </Card>
 
             {/* Recent Reports */}
-            <Card className="border-0 shadow-card hover:shadow-lg transition-all duration-300 hover-scale">
-              <CardHeader>
-                <CardTitle className="text-eco-dark flex items-center">
-                  <Clock className="h-5 w-5 mr-2" />
-                  Recent Activity
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-3">
-                <div className="space-y-3">
-                  <div className="p-3 bg-gradient-to-r from-eco-light to-primary/5 rounded-lg border border-primary/20">
-                    <div className="font-medium text-sm mb-1">Central Park - Plastic bottles</div>
-                    <div className="text-xs text-muted-foreground mb-2">Reported 2 hours ago</div>
-                    <Badge variant="outline" className="text-xs">Medium severity</Badge>
-                  </div>
-                  <div className="p-3 bg-gradient-to-r from-eco-light to-orange/5 rounded-lg border border-orange/20">
-                    <div className="font-medium text-sm mb-1">Main Street - Construction debris</div>
-                    <div className="text-xs text-muted-foreground mb-2">Reported 1 day ago</div>
-                    <Badge variant="outline" className="text-xs">High severity</Badge>
-                  </div>
-                  <div className="p-3 bg-gradient-to-r from-eco-light to-green/5 rounded-lg border border-green/20">
-                    <div className="font-medium text-sm mb-1">River Park - Mixed waste</div>
-                    <div className="text-xs text-muted-foreground mb-2">Reported 2 days ago</div>
-                    <Badge variant="outline" className="text-xs">Low severity</Badge>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+            
           </div>
+          
         </div>
+        <div className="w-full mt-6">
+  <Card className="border-0 shadow-card hover:shadow-lg transition-all duration-300 hover-scale w-full">
+    <CardHeader>
+      <CardTitle className="text-eco-dark flex items-center">
+        <Clock className="h-5 w-5 mr-2" />
+        Recent Activity
+      </CardTitle>
+    </CardHeader>
+    <CardContent>
+      <div className="flex space-x-4 overflow-x-auto pb-2">
+        <div className="p-3 bg-gradient-to-r from-eco-light to-primary/5 rounded-lg border border-primary/20 min-w-[220px]">
+          <div className="font-medium text-sm mb-1">Central Park - Plastic bottles</div>
+          <div className="text-xs text-muted-foreground mb-2">Reported 2 hours ago</div>
+          <Badge variant="outline" className="text-xs">Medium severity</Badge>
+        </div>
+        <div className="p-3 bg-gradient-to-r from-eco-light to-orange/5 rounded-lg border border-orange/20 min-w-[220px]">
+          <div className="font-medium text-sm mb-1">Main Street - Construction debris</div>
+          <div className="text-xs text-muted-foreground mb-2">Reported 1 day ago</div>
+          <Badge variant="outline" className="text-xs">High severity</Badge>
+        </div>
+        <div className="p-3 bg-gradient-to-r from-eco-light to-green/5 rounded-lg border border-green/20 min-w-[220px]">
+          <div className="font-medium text-sm mb-1">River Park - Mixed waste</div>
+          <div className="text-xs text-muted-foreground mb-2">Reported 2 days ago</div>
+          <Badge variant="outline" className="text-xs">Low severity</Badge>
+        </div>
+      </div>
+    </CardContent>
+  </Card>
+</div>
       </div>
     </div>
   );
