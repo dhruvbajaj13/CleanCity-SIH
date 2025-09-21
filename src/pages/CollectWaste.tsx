@@ -22,6 +22,8 @@ const CollectWaste = () => {
   const [selectedTask, setSelectedTask] = useState<string | null>(null);
   const [filterType, setFilterType] = useState("all");
   const [filterSeverity, setFilterSeverity] = useState("all");
+  const [beforePhoto, setBeforePhoto] = useState<File | null>(null);
+  const [afterPhoto, setAfterPhoto] = useState<File | null>(null);
   const { toast } = useToast();
 
   const wasteReports = [
@@ -116,15 +118,30 @@ const CollectWaste = () => {
   };
 
   const handleCompleteTask = () => {
-    if (selectedTask) {
+    if (selectedTask && beforePhoto && afterPhoto) {
       const task = wasteReports.find(r => r.id === selectedTask);
+
+      // Example: send photos + task info to backend
+      const formData = new FormData();
+      formData.append("taskId", selectedTask);
+      formData.append("beforePhoto", beforePhoto);
+      formData.append("afterPhoto", afterPhoto);
+
+      fetch("/api/complete-task", {
+        method: "POST",
+        body: formData,
+      });
+
       toast({
         title: "Task Completed!",
         description: `Excellent work! You earned ${task?.tokens} CleanTokens for collecting waste.`,
       });
       setSelectedTask(null);
+      setBeforePhoto(null);
+      setAfterPhoto(null);
     }
   };
+
 
   const filteredReports = wasteReports.filter(report => {
     if (filterType !== "all" && report.type !== filterType) return false;
@@ -261,11 +278,58 @@ const CollectWaste = () => {
                           </Badge>
                         </div>
                         
+                                        {/* Before photo upload */}
+                        <div className="space-y-2">
+                          <Label>Before Cleaning Photo *</Label>
+                          <input
+                            type="file"
+                            accept="image/*"
+                            className="hidden"
+                            id="beforePhoto"
+                            onChange={(e) => setBeforePhoto(e.target.files?.[0] || null)}
+                          />
+                          <div
+                            className="border-2 border-dashed border-muted-foreground/25 rounded-lg p-6 text-center cursor-pointer"
+                            onClick={() => document.getElementById("beforePhoto")?.click()}
+                          >
+                            {beforePhoto ? (
+                              <p className="text-sm text-green-600">✅ {beforePhoto.name}</p>
+                            ) : (
+                              <p className="text-sm text-muted-foreground">Upload BEFORE cleaning photo</p>
+                            )}
+                          </div>
+                        </div>
+
+                                        {/* After photo upload */}
+                        <div className="space-y-2">
+                          <Label>After Cleaning Photo *</Label>
+                          <input
+                            type="file"
+                            accept="image/*"
+                            className="hidden"
+                            id="afterPhoto"
+                            onChange={(e) => setAfterPhoto(e.target.files?.[0] || null)}
+                          />
+                          <div
+                            className="border-2 border-dashed border-muted-foreground/25 rounded-lg p-6 text-center cursor-pointer"
+                            onClick={() => document.getElementById("afterPhoto")?.click()}
+                          >
+                            {afterPhoto ? (
+                              <p className="text-sm text-green-600">✅ {afterPhoto.name}</p>
+                            ) : (
+                              <p className="text-sm text-muted-foreground">Upload AFTER cleaning photo</p>
+                            )}
+                          </div>
+                        </div>
+
+                        
                         <div className="flex space-x-3">
                           <Button 
                             className="bg-gradient-to-r from-primary to-eco-secondary hover:opacity-90"
                             onClick={handleCompleteTask}
+                            disabled={!beforePhoto || !afterPhoto}
                           >
+                            
                             <CheckCircle className="h-4 w-4 mr-2" />
                             Mark as Completed
                           </Button>
