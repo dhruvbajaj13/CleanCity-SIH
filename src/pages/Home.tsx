@@ -256,66 +256,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Community Section */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="order-2 lg:order-1">
-              <img
-                src={beachCleanupImage}
-                alt="Community beach cleanup with volunteers"
-                className="rounded-lg shadow-lg w-full hover-scale"
-              />
-            </div>
-            <div className="order-1 lg:order-2">
-              <Badge className="mb-4 bg-green-100 text-green-800">Community Impact</Badge>
-              <h2 className="text-4xl font-bold mb-6 text-eco-dark">Together We're Stronger</h2>
-              <p className="text-xl text-muted-foreground mb-8">
-                From neighborhood cleanups to city-wide initiatives, our platform 
-                connects people who care about the environment and amplifies their impact.
-              </p>
-              
-              <div className="space-y-4 mb-8">
-                <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
-                    <TreePine className="h-4 w-4 text-white" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold mb-1">Neighborhood Cleanups</h4>
-                    <p className="text-muted-foreground text-sm">Organize and join local cleanup events with gamified rewards</p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
-                    <Recycle className="h-4 w-4 text-white" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold mb-1">Recycling Education</h4>
-                    <p className="text-muted-foreground text-sm">Interactive learning modules on proper waste sorting and recycling</p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
-                    <Droplets className="h-4 w-4 text-white" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold mb-1">Environmental Impact</h4>
-                    <p className="text-muted-foreground text-sm">Real-time tracking and measurement of community environmental progress</p>
-                  </div>
-                </div>
-              </div>
-
-              <Button asChild variant="outline" size="lg" className="border-primary text-primary hover:bg-primary hover:text-white hover-scale">
-                <Link to="/about">
-                  Learn More About Waste Management
-                  <ArrowRight className="h-5 w-5 ml-2" />
-                </Link>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Recycling Guide Section */}
       <section className="py-20 bg-eco-light">
         <div className="container mx-auto px-4">
