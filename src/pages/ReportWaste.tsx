@@ -188,15 +188,22 @@ const ReportWaste = () => {
                         <SelectValue placeholder="Select waste category" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="plastic">Municipal Solid Waste (Household & Commercial Waste)</SelectItem>
-                        <SelectItem value="organic">Plastic Waste</SelectItem>
-                        <SelectItem value="electronic">E-Waste (Electronic Waste)</SelectItem>
-                        <SelectItem value="metal">Dry Recyclable / Non-Biodegradable Waste (Paper, Glass, Metal, Metal)</SelectItem>
-                        <SelectItem value="glass">Construction & Demolition Waste (C&D Waste)</SelectItem>
-                        <SelectItem value="hazardous">Hazardous Waste</SelectItem>
-                        <SelectItem value="construction">Bio-degradable/Wet Waste (Kitchen / Garden)</SelectItem>
-                        <SelectItem value="mixed">Biomedical Waste</SelectItem>
-                        <SelectItem value="other">Other</SelectItem>
+                        <SelectItem value="plastic">Garbage Dump</SelectItem>
+                        <SelectItem value="organic">Garbage Vehicle Not Arrived</SelectItem>
+                        <SelectItem value="electronic">Buring of Garbage in Open Space</SelectItem>
+                        <SelectItem value="metal">Sweeping Not Done</SelectItem>
+                        <SelectItem value="glass">Dustbins not Cleaned</SelectItem>
+                        <SelectItem value="hazardous">OverFlow of  Sewage or Storm Water</SelectItem>
+                        <SelectItem value="construction">Stagent Water on Road/Open Area</SelectItem>
+                        <SelectItem value="mixed">Blockage in Public Toilet</SelectItem>
+                        <SelectItem value="other">Uncleaning Public Toilets</SelectItem>
+                        <SelectItem value="other">No Electricity Supply in Public Toilets</SelectItem>
+                        <SelectItem value="other">No Water Supply in Public Toilets</SelectItem>
+
+                        <SelectItem value="other">Yellow Spot(Public Urination Spot)</SelectItem>
+                        <SelectItem value="other">Improper Disposal of Fecal Waste/Septage</SelectItem>
+
+
                       </SelectContent>
                     </Select>
                   </div>
@@ -302,28 +309,28 @@ const ReportWaste = () => {
               </CardHeader>
               <CardContent className="space-y-3">
                 <div className="space-y-5">
-                  <div className="pl-2 bg-green-50 rounded-lg h-[50px] border-l-4 border-green-500">
+                  <div className="pl-2 bg-green-50 text-black dark:text-black rounded-lg h-[50px] border-l-4 border-green-500">
                     <span className="text-md mb-2 font-medium">1️⃣ Click a Clear Photo 📸 <br/>
                   </span>
                   <p className="text-sm ">Capture the waste site clearly along with the waste.</p>
                     
                   </div>
-                  <div className="pl-2 bg-blue-50 h-[50px] rounded-lg border-l-4 border-blue-500">
+                  <div className="pl-2 bg-blue-50 text-black dark:text-black h-[50px] rounded-lg border-l-4 border-blue-500">
                     <span className="text-md font-medium">2️⃣ Ensure Photo is Geotagged 🌍</span>
                     <p className="text-sm ">Turn on GPS/location so the photo has location info.</p>
                     
                   </div>
-                  <div className="pl-2 bg-purple-50 h-[50px] rounded-lg border-l-4 border-purple-500">
+                  <div className="pl-2 bg-purple-50 text-black dark:text-black h-[50px] rounded-lg border-l-4 border-purple-500">
                     <span className="text-md font-medium">3️⃣ Enter Location Manually 🏠</span>
                     <p className="text-sm ">Add address or coordinates if GPS is not available.</p>
                     
                   </div>
-                  <div className="pl-2 bg-orange-50 h-[50px] rounded-lg border-l-4 border-orange-500">
+                  <div className="pl-2 bg-orange-50 text-black dark:text-black h-[50px] rounded-lg border-l-4 border-orange-500">
                     <span className="text-md font-medium">4️⃣ Select Waste Type & Severity ⚠️</span>
                     <p className="text-sm ">Choose the right category and urgency level.</p>
                     
                   </div>
-                  <div className="pl-2 bg-green-50 h-[50px] rounded-lg border-l-4 border-yellow-500">
+                  <div className="pl-2 bg-green-50 text-black dark:text-black h-[50px] rounded-lg border-l-4 border-yellow-500">
                     <span className="text-md font-medium">5️⃣ Submit Report ✅<br/>
                   </span>
                   <p className="text-sm ">Add a short description and submit to earn tokens.</p>
