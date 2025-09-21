@@ -5,6 +5,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, Leaf, Moon, Sun, Settings } from "lucide-react";
 import { useTheme } from "next-themes";
 
+<img src="/logo.svg" alt="Clean City Logo" className="w-12 h-12" />
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
