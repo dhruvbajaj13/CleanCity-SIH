@@ -27,7 +27,29 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex h-20 items-center justify-between ml-6">
           <Link to="/" className="flex items-center space-x-2">
-            <Leaf className="h-8 w-8 text-primary" />
+            <svg width="50" height="50" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+              <path d="M110 170 L130 90 L70 55 L160 105 L160 170 Z" fill="#0B6E4F" opacity="0.8"/>
+              <rect x="125" y="115" width="15" height="15" fill="#fff" />
+              <rect x="125" y="140" width="15" height="15" fill="#fff" />
+              <path d="M50 170 L50 110 L65 95 L80 110 L80 170 Z" fill="#0B6E4F" opacity="0.8"/>
+              <path d="M70 160 L70 60 L100 30 L130 60 L130 160 L140 160 L140 170 L60 170 L60 160 L70 160" fill="#0B6E4F" />
+              <polygon points="94,65 101.5,55 109,65" fill="#fff" />
+              <rect x="94" y="65" width="15" height="15" fill="#fff" />
+              <rect x="94" y="90" width="15" height="15" fill="#fff" />
+              <rect x="94" y="115" width="15" height="15" fill="#fff" />
+              <rect x="94" y="140" width="15" height="15" fill="#fff" />
+              <rect x="45" y="150" width="4" height="20" fill="#0B6E4F" />
+              <circle cx="48" cy="150" r="10" fill="#0B6E4F" />
+              <circle cx="42" cy="152" r="7" fill="#0B6E4F" />
+              <circle cx="54" cy="152" r="7" fill="#0B6E4F" />
+              <circle cx="48" cy="144" r="6" fill="#0B6E4F" />
+              <rect x="168" y="150" width="4" height="20" fill="#0B6E4F" />
+              <circle cx="170" cy="150" r="10" fill="#0B6E4F" />
+              <circle cx="164" cy="152" r="7" fill="#0B6E4F" />
+              <circle cx="176" cy="152" r="7" fill="#0B6E4F" />
+              <circle cx="170" cy="144" r="6" fill="#0B6E4F" />
+              <line x1="20" y1="170" x2="190" y2="170" stroke="#0B6E4F" strokeWidth="4" />
+            </svg>
             <span className="text-2xl font-bold bg-gradient-to-r from-primary to-eco-secondary bg-clip-text text-transparent">
               CleanCity
             </span>
