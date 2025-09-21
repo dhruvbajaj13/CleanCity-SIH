@@ -208,39 +208,26 @@ const Rewards = () => {
 
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-8">
-            {/* Special Offers */}
+            {/* Achievements FIRST */}
             <div>
-              <h2 className="text-2xl font-bold text-eco-dark mb-6">Special Offers</h2>
-              <div className="grid gap-4">
-                {specialOffers.map((offer, index) => (
-                  <Card key={index} className="border-2 border-primary/20 shadow-card">
-                    <CardContent className="p-6">
-                      <div className="flex items-start justify-between">
+              <h2 className="text-2xl font-bold text-eco-dark mb-6">Achievements</h2>
+              <div className="grid gap-3">
+                {achievements.map((achievement, index) => (
+                  <Card key={index} className={`border-0 shadow-card ${achievement.earned ? 'bg-green-50' : 'opacity-60'}`}>
+                    <CardContent className="p-4">
+                      <div className="flex items-center space-x-4">
+                        <div className={`p-2 rounded-full ${achievement.earned ? 'bg-green-200' : 'bg-gray-200'}`}>
+                          <Award className={`h-5 w-5 ${achievement.earned ? 'text-green-600' : 'text-gray-400'}`} />
+                        </div>
                         <div className="flex-1">
-                          <h3 className="font-semibold text-lg mb-2">{offer.title}</h3>
-                          <p className="text-muted-foreground mb-3">{offer.description}</p>
-                          {offer.progress && (
-                            <div className="space-y-2">
-                              <div className="flex justify-between text-sm">
-                                <span>Progress</span>
-                                <span>{offer.progress}%</span>
-                              </div>
-                              <Progress value={offer.progress} className="h-2" />
-                            </div>
-                          )}
+                          <h3 className="font-semibold">{achievement.name}</h3>
+                          <p className="text-sm text-muted-foreground">{achievement.description}</p>
                         </div>
-                        <div className="ml-4">
-                          {offer.bonus && (
-                            <Badge className="bg-yellow-100 text-yellow-800">
-                              {offer.bonus}
-                            </Badge>
-                          )}
-                          {offer.expires && (
-                            <Badge variant="outline" className="text-xs">
-                              {offer.expires}
-                            </Badge>
-                          )}
-                        </div>
+                        {achievement.earned && (
+                          <Badge className="bg-green-100 text-green-800">
+                            Earned
+                          </Badge>
+                        )}
                       </div>
                     </CardContent>
                   </Card>
@@ -248,7 +235,7 @@ const Rewards = () => {
               </div>
             </div>
 
-            {/* Available Rewards */}
+            {/* Rewards SECOND */}
             <div>
               <h2 className="text-2xl font-bold text-eco-dark mb-6">Redeem Rewards</h2>
               <div className="grid md:grid-cols-2 gap-4">
@@ -281,26 +268,39 @@ const Rewards = () => {
               </div>
             </div>
 
-            {/* Achievements */}
+            {/* Offers THIRD */}
             <div>
-              <h2 className="text-2xl font-bold text-eco-dark mb-6">Achievements</h2>
-              <div className="grid gap-3">
-                {achievements.map((achievement, index) => (
-                  <Card key={index} className={`border-0 shadow-card ${achievement.earned ? 'bg-green-50' : 'opacity-60'}`}>
-                    <CardContent className="p-4">
-                      <div className="flex items-center space-x-4">
-                        <div className={`p-2 rounded-full ${achievement.earned ? 'bg-green-200' : 'bg-gray-200'}`}>
-                          <Award className={`h-5 w-5 ${achievement.earned ? 'text-green-600' : 'text-gray-400'}`} />
-                        </div>
+              <h2 className="text-2xl font-bold text-eco-dark mb-6">Special Offers</h2>
+              <div className="grid gap-4">
+                {specialOffers.map((offer, index) => (
+                  <Card key={index} className="border-2 border-primary/20 shadow-card">
+                    <CardContent className="p-6">
+                      <div className="flex items-start justify-between">
                         <div className="flex-1">
-                          <h3 className="font-semibold">{achievement.name}</h3>
-                          <p className="text-sm text-muted-foreground">{achievement.description}</p>
+                          <h3 className="font-semibold text-lg mb-2">{offer.title}</h3>
+                          <p className="text-muted-foreground mb-3">{offer.description}</p>
+                          {offer.progress && (
+                            <div className="space-y-2">
+                              <div className="flex justify-between text-sm">
+                                <span>Progress</span>
+                                <span>{offer.progress}%</span>
+                              </div>
+                              <Progress value={offer.progress} className="h-2" />
+                            </div>
+                          )}
                         </div>
-                        {achievement.earned && (
-                          <Badge className="bg-green-100 text-green-800">
-                            Earned
-                          </Badge>
-                        )}
+                        <div className="ml-4">
+                          {offer.bonus && (
+                            <Badge className="bg-yellow-100 text-yellow-800">
+                              {offer.bonus}
+                            </Badge>
+                          )}
+                          {offer.expires && (
+                            <Badge variant="outline" className="text-xs">
+                              {offer.expires}
+                            </Badge>
+                          )}
+                        </div>
                       </div>
                     </CardContent>
                   </Card>
