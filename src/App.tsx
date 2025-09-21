@@ -17,6 +17,16 @@ import Footer from "./components/Footer";
 
 const queryClient = new QueryClient();
 
+export default function Head() {
+  return (
+    <>
+      <title>CleanCity</title>
+      <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+    </>
+  );
+}
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <ThemeProvider
