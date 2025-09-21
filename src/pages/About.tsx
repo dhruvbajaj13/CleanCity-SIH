@@ -225,42 +225,7 @@ const About = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-lg" />
             </div>
           </div>
-
-          {/* Video Demo */}
-              <div className="text-center mb-16">
-      <h3 className="text-3xl font-bold mb-6 text-eco-dark">
-        How CleanCity Works
-      </h3>
-
-      <div className="relative max-w-4xl mx-auto">
-        <div className="aspect-video rounded-lg overflow-hidden relative">
-          <video
-            ref={videoRef}
-            src={video} // replace with your `video` import/prop
-            controls
-            className="w-full h-full rounded-lg"
-          />
-
-          {showButton && (
-            <button
-              onClick={handlePlay}
-              className="absolute inset-0 flex items-center justify-center bg-black/40 hover:bg-black/50 transition"
-            >
-              <div className="flex items-center bg-white/90 px-6 py-3 rounded-xl shadow-lg hover:scale-105 transition">
-                <Play className="h-8 w-8 mr-3 text-primary" />
-                <span className="text-primary font-semibold">
-                  Watch Demo Video
-                </span>
-              </div>
-            </button>
-          )}
-        </div>
-      </div>
-    </div>
-  
-
         </section>
-
         {/* The 3Rs Principle */}
         <section className="mb-20">
           <div className="text-center mb-12">
@@ -645,27 +610,6 @@ const About = () => {
               />
               <div className="absolute top-4 left-4">
                 <Badge className="bg-white/90 text-primary">Success Story</Badge>
-              </div>
-            </div>
-            <div>
-              <h3 className="text-3xl font-bold mb-6 text-eco-dark">Real Communities, Real Results</h3>
-              <p className="text-lg text-muted-foreground mb-6">
-                CleanCity communities worldwide are achieving remarkable environmental transformations.
-              </p>
-              
-              <div className="space-y-6">
-                <div className="border-l-4 border-green-500 pl-4">
-                  <h4 className="font-semibold text-green-800 mb-1">San Francisco Bay Area</h4>
-                  <p className="text-sm text-muted-foreground">Reduced landfill waste by 60% in 18 months through community reporting</p>
-                </div>
-                <div className="border-l-4 border-blue-500 pl-4">
-                  <h4 className="font-semibold text-blue-800 mb-1">Stockholm, Sweden</h4>
-                  <p className="text-sm text-muted-foreground">Increased recycling rates by 85% using gamification rewards</p>
-                </div>
-                <div className="border-l-4 border-purple-500 pl-4">
-                  <h4 className="font-semibold text-purple-800 mb-1">Singapore</h4>
-                  <p className="text-sm text-muted-foreground">Zero-waste neighborhoods achieved through AI-powered optimization</p>
-                </div>
               </div>
             </div>
           </div>
